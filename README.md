@@ -1,6 +1,19 @@
-frontend-nanodegree-arcade-game
-===============================
+# Frogger Arcade Game
+![Image of Demo](images/demo.png)
+This is a simple clone of classic frogger arcade game, and it is the first project from Udacity Front End Nanoegree.
+Udacity provides the game engine and the graphics. I have completed the creation and instantiation of enemy and player class using object oriented javascript knowledge, and developed the logics for player movements and win/lose check.
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+### How to play the game
+- The goal is to make the player reach the river by moving the player across the grass and bricks 
+- Try to avoid collision with the flying bugs, or you'll lose the game
+- Control the movements of the player by pressing the up/down/left/right keyboards
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+# Installation
+
+  - Download and unzip the zip file of the project
+  - Open the index.html file using your browser
+
+# Relevant Techniques 
+- object oriented javascript
+- HTML5 canvas
+
