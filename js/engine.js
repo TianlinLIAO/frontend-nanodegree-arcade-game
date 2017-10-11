@@ -79,7 +79,8 @@ var Engine = (function(global) {
      */
     function update(dt) {
         updateEntities(dt);
-        // checkCollisions();
+        checkCollisions();
+        checkVictory();
     }
 
     /* This is called by the update function and loops through all of the
@@ -94,7 +95,30 @@ var Engine = (function(global) {
             enemy.update(dt);
         });
         player.update();
-    }
+     }
+
+     /*This is called by the update function and check if there's a collision 
+      *between player and an enemy. Collision happens when player overlaps an enemy.
+      */
+     function checkCollisions(){
+         for(var i=0;i<allEnemies.length;i++){
+            var enemy=allEnemies[i];
+            if(player.y===enemy.y){
+                if(player.x-enemy.x>=-80&&player.x-enemy.x<=80){
+                    player.isCollided=true;
+                }
+            }
+            if(player.isCollided) {
+                break;
+            }
+        }
+     }
+
+     /*This is called by the update function and check if the player reaches the river.
+     */
+     function checkVictory(){
+        if(player.y===0) player.isVictory=true;
+     }
 
     /* This function initially draws the "game level", it will then call
      * the renderEntities function. Remember, this function is called every
@@ -158,7 +182,7 @@ var Engine = (function(global) {
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
-        // noop
+        
     }
 
     /* Go ahead and load all of the images we know we're going to need to

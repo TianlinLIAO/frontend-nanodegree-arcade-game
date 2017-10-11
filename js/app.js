@@ -16,7 +16,6 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    this.checkCollision(player);
     this.x+=dt*this.speed;
     if(this.x>=500) this.x=-100;
 };
@@ -26,31 +25,25 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-Enemy.prototype.checkCollision=function(player){
-    if(this.y===player.y) {
-        if(this.x-player.x<=80&&this.x-player.x>=-80)
-            isCollided=true;
-    }
-}
-
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
 var Player=function(x,y){
     this.x=x;
     this.y=y;
+    this.isCollided=false;
+    this.isVictory=false;
     this.sprite='images/char-boy.png';
 }
 
 Player.prototype.update=function(dt){
-    if(isCollided){
-        alert("you lose!");
-        this.y=400;
-        isCollided=false;
+    if(this.isCollided) {
+        this.reset();
+        alert("You lose!");
     }
-    else if(this.y==0) {
-        alert("you win!");
-        this.y=400;
+    else if(this.isVictory) {
+        alert("You win!");
+        this.reset();
     }
 }
 
@@ -77,13 +70,17 @@ Player.prototype.handleInput=function(key){
     }
 }
 
+Player.prototype.reset=function(){
+   this.y=400;
+   this.isCollided=false;
+   this.isVictory=false;
+}
+
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-var allEnemies=[new Enemy(0,80,0),new Enemy(0,160,50),new Enemy(0,240,120)];
+var allEnemies=[new Enemy(0,80,100),new Enemy(0,160,50),new Enemy(0,240,120)];
 var player=new Player(300,400);
-
- var isCollided=false;
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
