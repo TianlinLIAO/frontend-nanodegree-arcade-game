@@ -1,5 +1,5 @@
 # Frogger Arcade Game
-![Image of Demo](images/demo.png)
+![Image of Demo](images/demo.PNG)
 This is a simple clone of classic frogger arcade game, and it is the first project from Udacity Front End Nanoegree.
 Udacity provides the game engine and the graphics. I have completed the creation and instantiation of enemy and player class using object oriented javascript knowledge, and developed the logics for player movements and win/lose check.
 
